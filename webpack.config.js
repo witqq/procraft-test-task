@@ -12,7 +12,8 @@ module.exports = {
     ],
     output: {
         path: __dirname,
-        filename: "bundle.js"
+        filename: "bundle.js",
+        devtoolModuleFilenameTemplate: '/[absolute-resource-path]'
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
@@ -20,7 +21,7 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new WebpackNotifierPlugin({ alwaysNotify: true }),
+        new WebpackNotifierPlugin({alwaysNotify: true})
     ],
     module: {
         loaders: [

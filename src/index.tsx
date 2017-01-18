@@ -1,23 +1,23 @@
-// Import React and React DOM
-import * as React from 'react';
-import { render } from 'react-dom';
+import * as React from "react";
+import {render} from "react-dom";
 import {App} from "./App";
-// Import the Hot Module Reloading App Container – more on why we use 'require' below
-const { AppContainer } = require('react-hot-loader');
-
+import Component = React.Component;
+import ComponentClass = React.ComponentClass;
+import ComponentState = React.ComponentState;
+import {ConsoleErrorAppContainer} from "./ConsoleErrorAppContainer";
 
 
 // Tell Typescript that there is a global variable called module - see below
-declare var module: { hot: any };
+declare let module: { hot: any };
 
 // Get the root element from the HTML
 const rootEl = document.getElementById('root');
 
 // And render our App into it, inside the HMR App ontainer which handles the hot reloading
 render(
-    <AppContainer>
+    <ConsoleErrorAppContainer>
         <App />
-    </AppContainer>,
+    </ConsoleErrorAppContainer>,
     rootEl
 );
 
@@ -29,9 +29,9 @@ if (module.hot) {
 
         // And render it into the root element again
         render(
-            <AppContainer>
+            <ConsoleErrorAppContainer>
                 <NextApp />
-            </AppContainer>,
+            </ConsoleErrorAppContainer>,
             rootEl
         );
     })
