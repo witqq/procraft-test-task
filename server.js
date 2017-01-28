@@ -15,8 +15,6 @@ app.use(devMiddleware(compiler, {
         colors: true
     },
     noInfo: false,
-    // display no info to console (only warnings and errors)
-
     quiet: false,
 }));
 

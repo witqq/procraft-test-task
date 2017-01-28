@@ -11,8 +11,9 @@ module.exports = {
         "./src/index.tsx"
     ],
     output: {
-        path: __dirname,
-        filename: "bundle.js"
+        path: path.resolve(__dirname, 'dist/'),
+        filename: "bundle.js",
+        publicPath: 'http://localhost:3000/dist/'
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
