@@ -4,8 +4,9 @@ var path = require('path');
 
 module.exports = {
     devtool: 'eval',
+    context: path.resolve(__dirname, 'src/'),
     entry: [
-        "./src/index.tsx"
+        "./index.tsx"
     ],
     output: {
         path: path.resolve(__dirname, 'dist/'),
