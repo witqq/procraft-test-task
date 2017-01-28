@@ -12,8 +12,7 @@ module.exports = {
     ],
     output: {
         path: __dirname,
-        filename: "bundle.js",
-        // devtoolModuleFilenameTemplate: '/[absolute-resource-path]'
+        filename: "bundle.js"
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
@@ -42,7 +41,7 @@ module.exports = {
             },
             {test: /\.css$/, loader: 'style!css'},
             {test: /\.less$/, loader: 'style-loader!css-loader!less-loader'},
-            {test: /\.otf(\?[a-z0-9]+)?$/, loader: 'url-loader?limit=10000&name=[name]-[hash].[ext]'},
+            {test: /\.otf(\?[a-z0-9]+)?$/, loader: 'url-loader?limit=10000&countryCode=[countryCode]-[hash].[ext]'},
             {test: /\.woff(\?.+)?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff"},
             {test: /\.woff2(\?.+)?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff2"},
             {test: /\.ttf(\?.+)?$/, loader: "url-loader?limit=10000&mimetype=application/octet-stream"},

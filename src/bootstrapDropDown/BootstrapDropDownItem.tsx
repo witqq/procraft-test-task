@@ -4,34 +4,15 @@ import ClassAttributes = React.ClassAttributes;
 import {ClassName} from "../utils/utils";
 import ReactNode = React.ReactNode;
 
-export interface BootstrapDropDownItemProps extends ClassAttributes<BootstrapDropDownItem>, ClassName {
+export interface BootstrapDropDownItemProps extends ClassName {
     onClick?: () => void;
     children?: ReactNode;
+    renderSelected?: () => JSX.Element;
 }
 
-export interface BootstrapDropDownItemState {
-
-}
-
-export class BootstrapDropDownItem extends Component<BootstrapDropDownItemProps, BootstrapDropDownItemState> {
-
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
-    protected componentDidMount() {
-    }
-
-    protected componentWillUnmount() {
-    }
-
-    protected componentWillReceiveProps(props: BootstrapDropDownItemProps) {
-    }
-
-    public render() {
-        return  <li className={this.props.className}>
-            <a onClick={this.props.onClick}>{this.props.children}</a>
-        </li>;
-    }
-}
+export const BootstrapDropDownItem: (props: BootstrapDropDownItemProps) => JSX.Element =
+    ({className, onClick, children}) => {
+        return <li className={className}>
+            <a onClick={onClick}>{children}</a>
+        </li>
+    };

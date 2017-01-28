@@ -1,11 +1,11 @@
 import React = require("react");
 import Component = React.Component;
 import ClassAttributes = React.ClassAttributes;
-
 import "bootstrap/js/dropdown.js";
 import {ClassName, joinClassNames} from "../utils/utils";
 import {BootstrapDropDownItemProps} from "./BootstrapDropDownItem";
 import ReactElement = React.ReactElement;
+import "./BootstrapDropDown.less";
 
 export type ItemElement = ReactElement<BootstrapDropDownItemProps>;
 
@@ -23,15 +23,6 @@ export class BootstrapDropDownSelect extends Component<BootstrapDropDownSelectPr
     constructor(props) {
         super(props);
         this.state = {};
-    }
-
-    protected componentDidMount() {
-    }
-
-    protected componentWillUnmount() {
-    }
-
-    protected componentWillReceiveProps(props: BootstrapDropDownSelectProps) {
     }
 
     private getDropDownContent() {
@@ -55,7 +46,12 @@ export class BootstrapDropDownSelect extends Component<BootstrapDropDownSelectPr
 
     private getBtnContent() {
         const selectedItem = React.Children.toArray(this.props.children)[this.state.selected] as ItemElement;
-        return selectedItem && selectedItem.props.children || "empty";
+        if (selectedItem) {
+            return selectedItem.props.renderSelected && selectedItem.props.renderSelected() || selectedItem.props.children;
+        }
+        else {
+            return "select element";
+        }
     }
 
     public render() {
