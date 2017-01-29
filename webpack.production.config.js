@@ -10,7 +10,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist/'),
         filename: "./bundle.js",
-        publicPath: "/dist/"
+        publicPath: "dist/"
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
